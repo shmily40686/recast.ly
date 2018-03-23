@@ -1,15 +1,18 @@
 var VideoListEntry = (props) => (
 
-   var titleClick = function(){
-    props.onClick(props.video);
-   }
+  // titleClick = function(){
+  //   props.onClick(props.video);
+  // }
+  
+  //props.video is the video object we want
 
   <div className="video-list-entry media">
+    {console.log('video list entry props', props.video)}
     <div className="media-left media-middle">
       <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
     </div>
     <div className="media-body">
-      <div className="video-list-entry-title" onClick={titleClick}>{props.video.snippet.title}</div>
+      <div className="video-list-entry-title" object={props.video} onClick={() => props.onClick(props.video)}>{props.video.snippet.title}</div>
       <div className="video-list-entry-detail">{props.video.snippet.description}</div>
     </div>
   </div>
